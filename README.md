@@ -1,11 +1,11 @@
-# CqrsDapperEFDemoProject
+# CqrsDapperEntityFrameworkDemoProject
 
-# CQRS-Entity Framework- Dapper- Clean Architecture-SampleProject
+# CQRS- Dapper- Entity Framework- Clean Architecture- SampleProject
 
 
 This is a open-source project written in .NET Core 6.0
 
-This sample project demonistrate the most common technologies used to develop large scale and distrebusted software systems (Microservices).
+This sample project demonistrate the most common technologies used to develop large scale and distrebusted software systems (CQRS Microservices).
  
 The sample project implements the below model to simulate CRUD Actions:
 
@@ -16,10 +16,10 @@ EmployeeSalaries {
 	BaseSalary
 	Allowance
 	Transportation
-    CreatedDate
-    ModifiedDate
-    OverTimeCalculator
-    TotalSalary
+        CreatedDate
+        ModifiedDate
+        OverTimeCalculator
+        TotalSalary
 }
 ```
 
@@ -35,9 +35,9 @@ EmployeeSalaries {
 - Unit Test
 # 
 - Clean architecture
+- - CQRS (Dapper for Queries , EF for Commands)
 - Responsibility separation concerns
 - SOLID Principles and Clean Code
-- CQRS (Dapper for Queries , EF for Commands)
 
 ## Installation
 
