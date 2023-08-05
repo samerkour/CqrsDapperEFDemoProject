@@ -1,5 +1,3 @@
-# Cqrs Dapper EntityFramework Demo Project
-
 # CQRS- Dapper- Entity Framework- Clean Architecture- SampleProject
 
 
