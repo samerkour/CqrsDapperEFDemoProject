@@ -39,8 +39,8 @@ EmployeeSalaries {
 
 ## Installation
 
-Create SQL server database (e.g. EmployeeDb)
-Create table using EmployeeSalaries.sql file
-Change connection string in Salary.API Project
+- Create SQL server database (e.g. EmployeeDb)
+- Create table using EmployeeSalaries.sql file found in db folder
+- Change connection string in Salary.API Project
 
 
