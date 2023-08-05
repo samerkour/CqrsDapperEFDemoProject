@@ -9,22 +9,22 @@ namespace UnitTests
 {
     public class QueriesTests
     {
-        private readonly Mock<IEmployeeSalaryQueryRepository> _mockRepo;
+        private readonly Mock<IEmployeeSalaryQueryRepository> _mockEmployeeSalaryQueryRepo;
 
     
         public QueriesTests()
         {
-            _mockRepo = new Mock<IEmployeeSalaryQueryRepository>();
+            _mockEmployeeSalaryQueryRepo = new Mock<IEmployeeSalaryQueryRepository>();
         }
 
         [Fact]
         public async void Get_WhenCalled_ReturnsAllItems()
         {
             //Arrange 
-            _mockRepo.Setup( repo => repo.GetAllAsync())
+            _mockEmployeeSalaryQueryRepo.Setup( repo => repo.GetAllAsync())
                 .ReturnsAsync(new List<EmployeeSalary> { new EmployeeSalary() });
 
-            var handler = new GetAllEmployeeSalaryHandler(_mockRepo.Object);
+            var handler = new GetAllEmployeeSalaryHandler(_mockEmployeeSalaryQueryRepo.Object);
 
             // Act
 
@@ -41,7 +41,7 @@ namespace UnitTests
         public async void GetById_UnknownIdPassed_ReturnsNoContentResult(long id)  
         {
             //Arrange 
-            _mockRepo.Setup(repo => repo.GetAllAsync())
+            _mockEmployeeSalaryQueryRepo.Setup(repo => repo.GetAllAsync())
              .ReturnsAsync(new List<EmployeeSalary> { new EmployeeSalary() { 
                 Id=1,
                 FirstName = "Samer",
@@ -53,7 +53,7 @@ namespace UnitTests
                 TotalSalary = 6  } 
              });
 
-            var handler = new GetEmployeeSalaryByIdHandler(_mockRepo.Object);
+            var handler = new GetEmployeeSalaryByIdHandler(_mockEmployeeSalaryQueryRepo.Object);
 
             // Act
 
@@ -69,7 +69,7 @@ namespace UnitTests
         public async void GetById_ExistingIdPassed_ReturnsOkRightItem(long id)
         {
             //Arrange 
-            _mockRepo.Setup(repo => repo.GetByIdAsync(id))
+            _mockEmployeeSalaryQueryRepo.Setup(repo => repo.GetByIdAsync(id))
                .ReturnsAsync( new EmployeeSalary() { 
                     Id=1,
                     FirstName = "Samer",
@@ -81,7 +81,7 @@ namespace UnitTests
                     TotalSalary = 6  
                });
 
-            var handler = new GetEmployeeSalaryByIdHandler(_mockRepo.Object);
+            var handler = new GetEmployeeSalaryByIdHandler(_mockEmployeeSalaryQueryRepo.Object);
 
             // Act
 
@@ -96,7 +96,7 @@ namespace UnitTests
         public async Task GetRange_ExistingDatePassed_ReturnsRangeItems() 
         {
             //Arrange 
-            _mockRepo.Setup(repo => repo.GetEmployeeSalaryByDate(DateTime.Now.Date.AddDays(-1), DateTime.Now.Date.AddDays(1)))
+            _mockEmployeeSalaryQueryRepo.Setup(repo => repo.GetEmployeeSalaryByDate(DateTime.Now.Date.AddDays(-1), DateTime.Now.Date.AddDays(1)))
               .ReturnsAsync(new List<EmployeeSalary> { new EmployeeSalary() {
                     Id=1,
                     FirstName = "Samer",
@@ -108,7 +108,7 @@ namespace UnitTests
                     TotalSalary = 6  }
               });
 
-            var handler = new GetEmployeeSalaryByDateHandler(_mockRepo.Object);
+            var handler = new GetEmployeeSalaryByDateHandler(_mockEmployeeSalaryQueryRepo.Object);
 
             // Act
 
